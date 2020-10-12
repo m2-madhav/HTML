@@ -5,6 +5,12 @@ import App from "./App";
 
 const rootElement = document.getElementById("root");
 
+const camelize = function camelize(str) {
+  return str.replace(/\W+(.)/g, function (match, chr) {
+    return chr.toUpperCase();
+  });
+};
+
 function generateCodeFromObject(obj) {
   let ans_str = "<";
   ans_str += obj.name + "";
@@ -30,11 +36,6 @@ function generateCodeFromObject(obj) {
   return ans_str;
   //return a code generated string
 }
-camelize = function camelize(str) {
-  return str.replace(/\W+(.)/g, function (match, chr) {
-    return chr.toUpperCase();
-  });
-};
 
 module.exports = generateCodeFromObject;
 
